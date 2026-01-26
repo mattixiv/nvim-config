@@ -5,6 +5,7 @@ A LazyVim-based configuration, mostly for React development with TypeScript
 ## Features
 
 - **LSP:** `vtsls` for TypeScript and React
+- **Snippets:** via `friendly-snippets`
 - **Tests:** with `neotest-jest`
 - **Formatting:** Prettier
 - **Git:** Gitsigns (inline blame) and LazyGit
