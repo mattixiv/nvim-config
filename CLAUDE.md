@@ -31,7 +31,7 @@ TypeScript/React support (`vtsls`), Prettier formatting, and neotest-jest are lo
 
 | File | Purpose |
 |------|---------|
-| `colorscheme.lua` | Sets gruvbox as the active colorscheme |
+| `colorscheme.lua` | Sets tokyonight as the active colorscheme |
 | `git.lua` | Enables gitsigns inline blame (`  <author>, <date> - <summary>`) |
 | `snippets.lua` | Loads friendly-snippets via LuaSnip's VS Code loader |
 | `test.lua` | Configures neotest-jest with `node_modules/.bin/jest` and `CI=true` |
