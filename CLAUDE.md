@@ -9,7 +9,7 @@ A LazyVim-based Neovim configuration for React/TypeScript and C++/OpenGL develop
 ## Architecture
 
 - **`init.lua`** — entry point; just calls `require("config.lazy")`
-- **`lua/config/lazy.lua`** — bootstraps Lazy.nvim, loads LazyVim core + extras + `lua/plugins/*`
+- **`lua/config/lazy.lua`** — bootstraps Lazy.nvim, loads LazyVim core + `lua/plugins/*`
 - **`lua/config/`** — `options.lua`, `keymaps.lua`, `autocmds.lua` (mostly empty; LazyVim defaults apply)
 - **`lua/plugins/`** — custom plugin specs that extend or override LazyVim
 - **`lazyvim.json`** — controls which LazyVim extras are enabled (edit via `:LazyExtras` in Neovim)
@@ -22,10 +22,11 @@ Managed via `lazyvim.json` (use `:LazyExtras` to toggle):
 - **AI**: `ai.claudecode`, `ai.copilot`
 - **Coding**: `coding.mini-comment`, `coding.mini-snippets`, `coding.mini-surround`, `coding.yanky`
 - **Editor**: `editor.dial`, `editor.inc-rename`
-- **Languages**: `lang.astro`, `lang.clangd`, `lang.cmake`, `lang.git`, `lang.helm`, `lang.json`, `lang.markdown`, `lang.toml`
+- **Formatting**: `formatting.prettier`
+- **Languages**: `lang.astro`, `lang.clangd`, `lang.cmake`, `lang.git`, `lang.helm`, `lang.json`, `lang.markdown`, `lang.toml`, `lang.typescript`
+- **Test**: `test.core`
 - **Util**: `util.dot`, `util.mini-hipatterns`
 
-TypeScript/React support (`vtsls`), Prettier formatting, and neotest-jest are loaded directly in `lua/config/lazy.lua` as non-extra specs.
 
 ## Custom Plugin Configs (`lua/plugins/`)
 
