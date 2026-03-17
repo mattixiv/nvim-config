@@ -1,4 +1,23 @@
 return {
+  -- Patch markdownlint to not run on CLAUDE.md via condition on the linter itself
+  {
+    "mfussenegger/nvim-lint",
+    init = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "LazyLoad",
+        callback = function(ev)
+          if ev.data ~= "nvim-lint" then return end
+          local lint = require("lint")
+          if lint.linters["markdownlint-cli2"] then
+            lint.linters["markdownlint-cli2"].condition = function(ctx)
+              return not ctx.filename:match("CLAUDE%.md$")
+            end
+          end
+        end,
+      })
+    end,
+  },
+
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -11,24 +30,11 @@ return {
             local util = require("lspconfig.util")
             return util.root_pattern(".marksman.toml")(fname)
               or util.root_pattern(".git")(fname)
-              or util.path.dirname(fname)
+              or vim.fs.dirname(fname)
           end,
         },
       },
     },
   },
 
-  -- Don't lint CLAUDE.md — it's not meant for humans and markdownlint is overkill
-  {
-    "mfussenegger/nvim-lint",
-    opts = {
-      linters = {
-        markdownlint = {
-          condition = function(ctx)
-            return not ctx.filename:match("CLAUDE%.md$")
-          end,
-        },
-      },
-    },
-  },
 }

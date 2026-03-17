@@ -5,7 +5,7 @@ return {
     opts = { ensure_installed = { "glsl" } },
   },
 
-  -- GLSL language server via Mason
+  -- GLSL language server (glsl-analyzer installed system-wide)
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -13,9 +13,5 @@ return {
         glsl_analyzer = {},
       },
     },
-  },
-  {
-    "mason-org/mason.nvim",
-    opts = { ensure_installed = { "glsl-analyzer" } },
   },
 }
