@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-A LazyVim-based Neovim configuration primarily for React/TypeScript development. Built on [LazyVim](https://lazyvim.org) (a Lazy.nvim distribution), it extends the defaults minimally through `lua/plugins/` and `lazyvim.json`.
+A LazyVim-based Neovim configuration for React/TypeScript and C++/OpenGL development. Built on [LazyVim](https://lazyvim.org) (a Lazy.nvim distribution), it extends the defaults minimally through `lua/plugins/` and `lazyvim.json`.
 
 ## Architecture
 
@@ -22,7 +22,7 @@ Managed via `lazyvim.json` (use `:LazyExtras` to toggle):
 - **AI**: `ai.claudecode`, `ai.copilot`
 - **Coding**: `coding.mini-comment`, `coding.mini-snippets`, `coding.mini-surround`, `coding.yanky`
 - **Editor**: `editor.dial`, `editor.inc-rename`
-- **Languages**: `lang.astro`, `lang.git`, `lang.helm`, `lang.json`, `lang.markdown`, `lang.toml`
+- **Languages**: `lang.astro`, `lang.clangd`, `lang.cmake`, `lang.git`, `lang.helm`, `lang.json`, `lang.markdown`, `lang.toml`
 - **Util**: `util.dot`, `util.mini-hipatterns`
 
 TypeScript/React support (`vtsls`), Prettier formatting, and neotest-jest are loaded directly in `lua/config/lazy.lua` as non-extra specs.
@@ -35,6 +35,7 @@ TypeScript/React support (`vtsls`), Prettier formatting, and neotest-jest are lo
 | `git.lua` | Enables gitsigns inline blame (`  <author>, <date> - <summary>`) |
 | `snippets.lua` | Loads friendly-snippets via LuaSnip's VS Code loader |
 | `test.lua` | Configures neotest-jest with `node_modules/.bin/jest` and `CI=true` |
+| `glsl.lua` | GLSL support: glsl-analyzer LSP (via Mason) and treesitter grammar |
 | `example.lua` | Disabled example patterns (returns `{}`) |
 
 ## Code Style
