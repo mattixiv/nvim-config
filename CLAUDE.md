@@ -37,6 +37,7 @@ Managed via `lazyvim.json` (use `:LazyExtras` to toggle):
 | `snippets.lua` | Loads friendly-snippets via LuaSnip's VS Code loader |
 | `test.lua` | Configures neotest-jest with `node_modules/.bin/jest` and `CI=true` |
 | `glsl.lua` | GLSL support: glsl-analyzer LSP (via Mason) and treesitter grammar |
+| `lsp.lua` | Disables Marksman LSP and markdownlint for `CLAUDE.md` files |
 | `example.lua` | Disabled example patterns (returns `{}`) |
 
 ## Code Style
