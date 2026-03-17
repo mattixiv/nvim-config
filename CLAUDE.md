@@ -13,7 +13,7 @@ A LazyVim-based Neovim configuration for React/TypeScript and C++/OpenGL develop
 - **`lua/config/`** — `options.lua`, `keymaps.lua`, `autocmds.lua` (mostly empty; LazyVim defaults apply)
 - **`lua/plugins/`** — custom plugin specs that extend or override LazyVim
 - **`lazyvim.json`** — controls which LazyVim extras are enabled (edit via `:LazyExtras` in Neovim)
-- **`lazy-lock.json`** — pinned plugin commits; update with `:Lazy update` in Neovim
+- **`lazy-lock.json`** — pinned plugin commits; update with `:Lazy update` in Neovim or `nvim --headless "+Lazy! update" +qa`
 
 ## Enabled LazyVim Extras
 
