@@ -1,4 +1,22 @@
 return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        -- Prevent Marksman from starting on CLAUDE.md — it crashes on it
+        marksman = {
+          root_dir = function(fname)
+            if fname:match("CLAUDE%.md$") then return nil end
+            local util = require("lspconfig.util")
+            return util.root_pattern(".marksman.toml")(fname)
+              or util.root_pattern(".git")(fname)
+              or util.path.dirname(fname)
+          end,
+        },
+      },
+    },
+  },
+
   -- Don't lint CLAUDE.md — it's not meant for humans and markdownlint is overkill
   {
     "mfussenegger/nvim-lint",
@@ -7,22 +25,6 @@ return {
         markdownlint = {
           condition = function(ctx)
             return not ctx.filename:match("CLAUDE%.md$")
-          end,
-        },
-      },
-    },
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        -- Don't attach Marksman to CLAUDE.md — it tends to crash on it
-        marksman = {
-          on_attach = function(client, bufnr)
-            if vim.api.nvim_buf_get_name(bufnr):match("CLAUDE%.md$") then
-              vim.lsp.buf_detach_client(bufnr, client.id)
-            end
           end,
         },
       },
